@@ -1,6 +1,5 @@
 import Layout from "../components/layout"
 import * as jose from 'jose'
-import {privkey} from "../secretkey"
 import {useState} from "react"
 import axios from 'axios';
 
@@ -11,7 +10,7 @@ export default function IndexPage() {
   const [email, setEmail] = useState("");
 
   async function generateJWT () {
-    const privateKey = await jose.importPKCS8(privkey, "RS256")
+    const privateKey = await jose.importPKCS8(process.env.NEXT_PUBLIC_PRIVATE_KEY as string, "RS256")
     const jwt = await new jose.SignJWT({ 'email': email })
     .setProtectedHeader({ alg: "RS256" })
     .setIssuedAt()
