@@ -25,7 +25,7 @@ export default function IndexPage() {
 
   
     axios.get( 
-      'http://localhost:3000/api/receive',
+      process.env.NEXT_PUBLIC_BASE_URL + 'api/receive',
       config
     ).then(console.log).catch(console.log);
   }
