@@ -10,7 +10,7 @@ export default function IndexPage() {
   async function generateJWT () {
     const privateKey = await jose.importPKCS8(process.env.NEXT_PUBLIC_PRIVATE_KEY as string, "RS256")
     const jwt = await new jose.SignJWT({ 'email': email })
-    .setProtectedHeader({ alg: "RS256" })
+    .setProtectedHeader({ alg: "RS256", typ: "JWT" })
     .setIssuedAt()
     .setIssuer('urn:example:issuer')
     .setAudience('urn:example:audience')
