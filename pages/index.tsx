@@ -3,8 +3,6 @@ import * as jose from 'jose'
 import {useState} from "react"
 import axios from 'axios';
 
-
-
 export default function IndexPage() {
 
   const [email, setEmail] = useState("");
@@ -33,10 +31,9 @@ export default function IndexPage() {
   }
   return (
     <Layout>
-      <h1>NextAuth.js Example</h1>
+      <h1>JWT generator</h1>
       <p>
-        This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> for authentication.
+        This site generates a JWT containing your email, and passes it to an endpoint to expose the JWT in network requests.
       </p>
       <h4>email</h4>
       <input onChange={(e) => setEmail(e.target.value)}></input>
